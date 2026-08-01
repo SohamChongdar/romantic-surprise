@@ -1941,3 +1941,91 @@ body {
     }
 
 }
+
+/* =========================================
+   FLOWER SCREEN MESSAGE
+========================================= */
+
+#flowerScreen {
+    position: fixed;
+    overflow: hidden;
+}
+
+#flowerScreen #flowerContainer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+
+#flowerScreen .flower-message {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 90%;
+
+    text-align: center;
+
+    z-index: 20;
+
+    color: #fff;
+
+    font-family:
+        "Segoe Print",
+        "Brush Script MT",
+        cursive;
+
+    font-size: clamp(32px, 9vw, 52px);
+
+    font-weight: 600;
+
+    line-height: 1.2;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 3px 8px rgba(120, 20, 70, 0.35),
+        0 0 18px rgba(255,255,255,0.7);
+
+    animation:
+        flowerMessageAppear 1.5s ease-out forwards;
+}
+
+@keyframes flowerMessageAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            scale(0.75);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    #flowerScreen .flower-message {
+
+        width: 92%;
+
+        font-size: clamp(30px, 9vw, 42px);
+
+        line-height: 1.25;
+    }
+
+}
