@@ -1205,3 +1205,421 @@ body {
     transform: translateY(20px);
 
 }
+/* =========================================
+   LOVE LETTER - FINAL FIX
+========================================= */
+
+#letterScreen.screen {
+    position: fixed !important;
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #fff8f3 0%,
+            #ffe7ee 45%,
+            #ffc4d8 75%,
+            #ff9fbe 100%
+        ) !important;
+
+    color: #5d2440 !important;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+
+#letterScreen .letter-background {
+
+    position: relative !important;
+
+    width: 100% !important;
+    min-height: 100vh !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 35px 18px !important;
+
+    box-sizing: border-box !important;
+
+    overflow: hidden !important;
+}
+
+
+#letterScreen .letter-content {
+
+    position: relative !important;
+
+    z-index: 10 !important;
+
+    width: min(100%, 620px) !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+
+    text-align: center !important;
+}
+
+
+/* =========================================
+   ENVELOPE
+========================================= */
+
+#letterScreen .letter-envelope {
+
+    position: relative !important;
+
+    width: min(75vw, 270px) !important;
+    height: min(50vw, 180px) !important;
+
+    margin-bottom: 25px !important;
+
+    cursor: pointer !important;
+
+    transition: transform 0.4s ease !important;
+}
+
+
+#letterScreen .envelope-body {
+
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff5f8,
+            #ffd7e4
+        ) !important;
+
+    border-radius: 10px !important;
+
+    font-size: 60px !important;
+
+    box-shadow:
+        0 15px 35px rgba(100, 35, 60, 0.18) !important;
+
+    z-index: 2 !important;
+}
+
+
+#letterScreen .envelope-flap {
+
+    position: absolute !important;
+
+    top: 0 !important;
+    left: 0 !important;
+
+    width: 0 !important;
+    height: 0 !important;
+
+    border-left:
+        min(37.5vw, 135px)
+        solid transparent !important;
+
+    border-right:
+        min(37.5vw, 135px)
+        solid transparent !important;
+
+    border-top:
+        min(25vw, 90px)
+        solid #ffc1d5 !important;
+
+    z-index: 4 !important;
+
+    transform-origin: top center !important;
+
+    transition: transform 0.9s ease !important;
+}
+
+
+#letterScreen .letter-envelope.open .envelope-flap {
+
+    transform: rotateX(180deg) !important;
+}
+
+
+#letterScreen .letter-envelope.open {
+
+    transform: translateY(20px) !important;
+}
+
+
+/* =========================================
+   LETTER PAPER
+========================================= */
+
+#letterScreen .love-letter {
+
+    width: 100% !important;
+
+    animation:
+        letterReveal 1s ease forwards !important;
+}
+
+
+#letterScreen .letter-paper {
+
+    position: relative !important;
+
+    width: 100% !important;
+
+    min-height: 420px !important;
+
+    padding: 35px 28px !important;
+
+    box-sizing: border-box !important;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,0.96),
+            rgba(255,250,242,0.98)
+        ) !important;
+
+    border-radius: 8px !important;
+
+    box-shadow:
+        0 15px 45px rgba(90, 30, 50, 0.20) !important;
+
+    text-align: left !important;
+
+    border:
+        1px solid rgba(150,80,90,0.12) !important;
+
+    overflow: hidden !important;
+}
+
+
+#letterScreen .letter-date {
+
+    position: relative !important;
+
+    font-family:
+        "Trebuchet MS",
+        Arial,
+        sans-serif !important;
+
+    font-size: 13px !important;
+
+    color: #a35c72 !important;
+
+    margin-bottom: 22px !important;
+}
+
+
+#letterScreen .letter-title {
+
+    position: relative !important;
+
+    font-family:
+        "Brush Script MT",
+        "Segoe Print",
+        cursive !important;
+
+    font-size: clamp(26px, 7vw, 36px) !important;
+
+    color: #8b3155 !important;
+
+    margin-bottom: 20px !important;
+}
+
+
+#letterScreen .letter-text {
+
+    position: relative !important;
+
+    font-family:
+        "Segoe Print",
+        "Comic Sans MS",
+        cursive !important;
+
+    font-size: clamp(14px, 3.7vw, 18px) !important;
+
+    line-height: 1.9 !important;
+
+    color: #613c4a !important;
+
+    white-space: pre-wrap !important;
+
+    min-height: 230px !important;
+}
+
+
+#letterScreen .letter-signature {
+
+    position: relative !important;
+
+    margin-top: 20px !important;
+
+    text-align: right !important;
+
+    font-family:
+        "Brush Script MT",
+        "Segoe Print",
+        cursive !important;
+
+    font-size: 17px !important;
+
+    color: #7e3a54 !important;
+}
+
+
+#letterScreen .letter-signature span {
+
+    font-size: 24px !important;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+#letterScreen .letter-button {
+
+    margin-top: 25px !important;
+
+    border: none !important;
+
+    border-radius: 100px !important;
+
+    padding: 10px 22px 10px 12px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    gap: 9px !important;
+
+    background:
+        rgba(255,255,255,0.65) !important;
+
+    color: #7b3150 !important;
+
+    font-family: inherit !important;
+
+    font-size: 15px !important;
+
+    font-weight: bold !important;
+
+    cursor: pointer !important;
+
+    box-shadow:
+        0 8px 25px rgba(90,30,50,0.15) !important;
+}
+
+
+/* =========================================
+   SPARKLES
+========================================= */
+
+#letterScreen .letter-sparkle {
+
+    position: absolute !important;
+
+    z-index: 2 !important;
+
+    font-size: 25px !important;
+
+    opacity: 0.65 !important;
+
+    animation:
+        letterFloat 4s ease-in-out infinite !important;
+}
+
+
+#letterScreen .sparkle-letter-one {
+    left: 8% !important;
+    top: 15% !important;
+}
+
+
+#letterScreen .sparkle-letter-two {
+    right: 10% !important;
+    top: 22% !important;
+}
+
+
+#letterScreen .sparkle-letter-three {
+    left: 12% !important;
+    bottom: 20% !important;
+}
+
+
+#letterScreen .sparkle-letter-four {
+    right: 9% !important;
+    bottom: 18% !important;
+}
+
+
+@keyframes letterFloat {
+
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: translateY(-18px) rotate(8deg);
+        opacity: 0.9;
+    }
+}
+
+
+@keyframes letterReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    #letterScreen .letter-background {
+
+        align-items: flex-start !important;
+
+        padding:
+            30px
+            15px !important;
+    }
+
+
+    #letterScreen .letter-paper {
+
+        padding:
+            28px
+            20px
+            30px !important;
+
+        min-height: 400px !important;
+    }
+
+
+    #letterScreen .letter-text {
+
+        line-height: 1.8 !important;
+    }
+
+}
