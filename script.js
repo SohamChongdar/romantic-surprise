@@ -29,6 +29,7 @@ const letterButton = document.getElementById("letterButton");
 const letterText = document.getElementById("letterText");
 
 const finalScreen = document.getElementById("finalScreen");
+const moreButton = document.getElementById("moreButton");
 
 
 /* =========================================
