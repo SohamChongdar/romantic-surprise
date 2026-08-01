@@ -1674,3 +1674,76 @@ body {
     transform: scale(0.96);
 
 }
+/* =========================================
+   LOVE LETTER SCREEN — CENTER ALIGNMENT
+========================================= */
+
+#letterScreen {
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+
+/* Main letter background */
+
+#letterScreen .letter-background {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+}
+
+
+/* Everything inside letter screen */
+
+#letterScreen .letter-content {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    padding: 30px 20px;
+}
+
+
+/* Envelope */
+
+#letterScreen .letter-envelope {
+    position: relative;
+
+    margin: 0 auto 25px auto;
+
+    flex-shrink: 0;
+}
+
+
+/* Click Me button */
+
+#letterScreen .letter-button {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto;
+
+    flex-shrink: 0;
+}
+
+
+/* Make sure hidden elements stay hidden */
+
+#letterScreen .hidden {
+    display: none !important;
+}
