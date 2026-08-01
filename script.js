@@ -460,15 +460,11 @@ function typeLoveLetter() {
                 28
             );
 
-        } else {
+       } else {
 
-            /*
-             * Letter finished.
-             * Now wait a little and show
-             * the final surprise.
-             */
+            /* Letter finished */
 
-            showFinalSurprise();
+            showMoreButton();
 
         }
 
@@ -478,38 +474,20 @@ function typeLoveLetter() {
     typeNextCharacter();
 
 }
-
-
 /* =========================================
-   FINAL SURPRISE
+   MORE BUTTON
 ========================================= */
 
-function showFinalSurprise() {
+function showMoreButton() {
 
-    /*
-     * Wait 2 seconds after the letter
-     * finishes typing.
-     */
+    const moreButton =
+        document.getElementById("moreButton");
 
-    setTimeout(() => {
+    if (moreButton) {
 
-        if (letterScreen) {
+        moreButton.classList.remove("hidden");
 
-            letterScreen.classList.add(
-                "hidden"
-            );
-
-        }
-
-
-        if (finalScreen) {
-
-            finalScreen.classList.remove(
-                "hidden"
-            );
-
-        }
-
-    }, 2000);
+    }
 
 }
+
