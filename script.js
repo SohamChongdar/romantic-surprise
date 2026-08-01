@@ -475,19 +475,26 @@ function typeLoveLetter() {
 
 }
 /* =========================================
-   MORE BUTTON
+   MORE BUTTON → FINAL SURPRISE
 ========================================= */
 
-function showMoreButton() {
+document.addEventListener("click", function (event) {
 
-    const moreButton =
-        document.getElementById("moreButton");
+    const clickedButton =
+        event.target.closest("#moreButton");
 
-    if (moreButton) {
+    if (!clickedButton) return;
 
-        moreButton.classList.remove("hidden");
 
+    // Hide love letter
+    if (letterScreen) {
+        letterScreen.classList.add("hidden");
     }
 
-}
 
+    // Show final surprise
+    if (finalScreen) {
+        finalScreen.classList.remove("hidden");
+    }
+
+});
