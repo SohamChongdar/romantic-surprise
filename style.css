@@ -1623,3 +1623,54 @@ body {
     }
 
 }
+
+/* =========================================
+   MORE BUTTON
+========================================= */
+
+.more-button {
+
+    margin-top: 25px;
+
+    padding: 10px 26px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    color: #7e3a54;
+
+    font-family:
+        "Segoe Print",
+        "Comic Sans MS",
+        cursive;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 20px rgba(90, 30, 50, 0.15);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.more-button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 9px 25px rgba(90, 30, 50, 0.20);
+}
+
+
+.more-button:active {
+
+    transform: scale(0.96);
+
+}
