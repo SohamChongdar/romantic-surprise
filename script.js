@@ -319,33 +319,3 @@ function typeLoveLetter() {
     typeNextCharacter();
 
 }
-/* =========================================
-   LOVE LETTER → FINAL SURPRISE
-========================================= */
-
-const finalScreen = document.getElementById("finalScreen");
-const letterScreen = document.getElementById("letterScreen");
-const letterButton = document.getElementById("letterButton");
-
-if (letterButton && finalScreen) {
-
-    letterButton.addEventListener("click", () => {
-
-        /*
-         * Give the love letter enough time
-         * to open and finish its animation.
-         */
-
-        setTimeout(() => {
-
-            if (letterScreen) {
-                letterScreen.classList.add("hidden");
-            }
-
-            finalScreen.classList.remove("hidden");
-
-        }, 12000);
-
-    });
-
-}
