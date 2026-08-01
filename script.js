@@ -12,6 +12,11 @@ const coupleScreen = document.getElementById("coupleScreen");
 const coupleButton = document.getElementById("coupleButton");
 const photoScreen = document.getElementById("photoScreen");
 const photoNextButton = document.getElementById("photoNextButton");
+const letterScreen = document.getElementById("letterScreen");
+const letterEnvelope = document.getElementById("letterEnvelope");
+const loveLetter = document.getElementById("loveLetter");
+const letterButton = document.getElementById("letterButton");
+const letterText = document.getElementById("letterText");
 
 /* =========================================
    FLOWER SETTINGS
@@ -208,3 +213,109 @@ coupleButton.addEventListener("click", () => {
     }, 700);
 
 });
+/* =========================================
+   PHOTO → LOVE LETTER
+========================================= */
+
+photoNextButton.addEventListener("click", () => {
+
+    photoNextButton.disabled = true;
+
+    // Hide photos
+    photoScreen.classList.add("hidden");
+
+    // Show letter screen
+    setTimeout(() => {
+
+        letterScreen.classList.remove("hidden");
+
+    }, 700);
+
+});
+/* =========================================
+   LOVE LETTER ANIMATION
+========================================= */
+
+const loveMessage = `My Love,
+
+I don't know if I can ever find enough words to explain what you mean to me.
+
+But if I had to choose one thing I want you to know, it would be this —
+
+You make my ordinary days feel a little more special.
+
+Your smile, your silly little moments, our conversations, our laughs, even our tiny fights... somehow, all of them have become some of my favourite memories.
+
+I don't promise that every day will always be perfect.
+
+But I do promise that I will always cherish the beautiful moments we create together.
+
+Thank you for being you.
+
+And thank you for being a beautiful part of my life.
+
+Happy Girlfriend's Day, my love. ❤️
+
+I love you. 💕`;
+
+
+let letterStarted = false;
+
+
+letterButton.addEventListener("click", () => {
+
+    if (letterStarted) return;
+
+    letterStarted = true;
+
+    // Hide Click Me button
+    letterButton.classList.add("hidden");
+
+    // Open envelope
+    letterEnvelope.classList.add("open");
+
+    // Wait for envelope animation
+    setTimeout(() => {
+
+        letterEnvelope.classList.add("hidden");
+
+        loveLetter.classList.remove("hidden");
+
+        typeLoveLetter();
+
+    }, 900);
+
+});
+
+
+/* =========================================
+   TYPEWRITER LETTER
+========================================= */
+
+function typeLoveLetter() {
+
+    let index = 0;
+
+    letterText.textContent = "";
+
+    function typeNextCharacter() {
+
+        if (index < loveMessage.length) {
+
+            letterText.textContent +=
+                loveMessage.charAt(index);
+
+            index++;
+
+            setTimeout(
+                typeNextCharacter,
+                28
+            );
+
+        }
+
+    }
+
+    typeNextCharacter();
+
+}
