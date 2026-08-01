@@ -10,6 +10,8 @@ const flowerContainer = document.getElementById("flowerContainer");
 const backgroundMusic = document.getElementById("backgroundMusic");
 const coupleScreen = document.getElementById("coupleScreen");
 const coupleButton = document.getElementById("coupleButton");
+const photoScreen = document.getElementById("photoScreen");
+const photoNextButton = document.getElementById("photoNextButton");
 
 /* =========================================
    FLOWER SETTINGS
@@ -187,17 +189,22 @@ function fadeFlowers() {
     }, 3200);
 }
 
-
 /* =========================================
-   COUPLE BUTTON
+   COUPLE → PHOTO GALLERY
 ========================================= */
 
 coupleButton.addEventListener("click", () => {
 
-    console.log("Couple button clicked ❤️");
+    coupleButton.disabled = true;
 
-    // Next: Photo Gallery
-    // We will connect this in the next step.
+    // Hide couple scene
+    coupleScreen.classList.add("hidden");
+
+    // Show photo gallery
+    setTimeout(() => {
+
+        photoScreen.classList.remove("hidden");
+
+    }, 700);
 
 });
-
