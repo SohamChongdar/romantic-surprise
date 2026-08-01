@@ -628,7 +628,291 @@
 
     </div>
 
-</section>    
+</section>   
+    <!-- =========================
+     FINAL SURPRISE SCREEN
+========================== -->
+
+<section id="finalScreen" class="screen hidden">
+
+    <div class="final-background">
+
+        <div class="final-heart heart-one">💗</div>
+        <div class="final-heart heart-two">💕</div>
+        <div class="final-heart heart-three">💖</div>
+        <div class="final-heart heart-four">🌸</div>
+        <div class="final-heart heart-five">✨</div>
+
+        <div class="final-content">
+
+            <div class="final-emoji">
+                💖
+            </div>
+
+            <h1>
+                One Last Thing...
+            </h1>
+
+            <p class="final-message">
+                You are one of the most beautiful
+                parts of my life. ❤️
+            </p>
+
+            <p class="final-small-message">
+                And this little surprise was made
+                just for you. 🌸
+            </p>
+
+            <div class="final-love">
+                I Love You ❤️
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<style>
+
+/* =========================
+   FINAL SURPRISE
+========================= */
+
+#finalScreen {
+    position: fixed !important;
+    inset: 0 !important;
+
+    width: 100vw !important;
+    height: 100vh !important;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #fff5f8 0%,
+            #ffe1eb 45%,
+            #ffb7ce 100%
+        ) !important;
+
+    overflow: hidden !important;
+
+    z-index: 200 !important;
+}
+
+
+#finalScreen .final-background {
+
+    position: relative !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 25px !important;
+
+    box-sizing: border-box !important;
+}
+
+
+#finalScreen .final-content {
+
+    position: relative !important;
+
+    z-index: 10 !important;
+
+    width: min(90vw, 550px) !important;
+
+    text-align: center !important;
+
+    animation:
+        finalAppear 1.2s ease forwards !important;
+}
+
+
+#finalScreen .final-emoji {
+
+    font-size: 70px !important;
+
+    margin-bottom: 15px !important;
+
+    animation:
+        heartBeat 1.5s ease-in-out infinite !important;
+}
+
+
+#finalScreen h1 {
+
+    margin: 0 0 20px !important;
+
+    color: #8b3155 !important;
+
+    font-family:
+        "Segoe Print",
+        "Comic Sans MS",
+        cursive !important;
+
+    font-size:
+        clamp(30px, 8vw, 48px) !important;
+}
+
+
+#finalScreen .final-message {
+
+    margin: 0 auto 18px !important;
+
+    max-width: 480px !important;
+
+    color: #633747 !important;
+
+    font-family:
+        "Segoe Print",
+        "Comic Sans MS",
+        cursive !important;
+
+    font-size:
+        clamp(16px, 4.5vw, 21px) !important;
+
+    line-height: 1.8 !important;
+}
+
+
+#finalScreen .final-small-message {
+
+    margin: 0 auto !important;
+
+    color: #8d5a6c !important;
+
+    font-family:
+        "Trebuchet MS",
+        Arial,
+        sans-serif !important;
+
+    font-size:
+        clamp(13px, 3.5vw, 16px) !important;
+
+    line-height: 1.7 !important;
+}
+
+
+#finalScreen .final-love {
+
+    margin-top: 28px !important;
+
+    color: #c33768 !important;
+
+    font-family:
+        "Brush Script MT",
+        "Segoe Print",
+        cursive !important;
+
+    font-size:
+        clamp(28px, 8vw, 42px) !important;
+
+    animation:
+        loveGlow 2s ease-in-out infinite !important;
+}
+
+
+/* Floating decorations */
+
+#finalScreen .final-heart {
+
+    position: absolute !important;
+
+    font-size: 25px !important;
+
+    opacity: 0.65 !important;
+
+    animation:
+        finalFloat 5s ease-in-out infinite !important;
+}
+
+
+#finalScreen .heart-one {
+    top: 12%;
+    left: 10%;
+}
+
+#finalScreen .heart-two {
+    top: 20%;
+    right: 12%;
+}
+
+#finalScreen .heart-three {
+    bottom: 18%;
+    left: 12%;
+}
+
+#finalScreen .heart-four {
+    bottom: 12%;
+    right: 10%;
+}
+
+#finalScreen .heart-five {
+    top: 45%;
+    left: 5%;
+}
+
+
+@keyframes finalAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.85) translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+}
+
+
+@keyframes heartBeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
+
+
+@keyframes loveGlow {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.06);
+    }
+
+}
+
+
+@keyframes finalFloat {
+
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-25px) rotate(8deg);
+    }
+
+}
+
+</style>
     <script src="script.js"></script>
 
 </body>
