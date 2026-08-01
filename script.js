@@ -8,6 +8,8 @@ const welcomeScreen = document.getElementById("welcomeScreen");
 const flowerScreen = document.getElementById("flowerScreen");
 const flowerContainer = document.getElementById("flowerContainer");
 const backgroundMusic = document.getElementById("backgroundMusic");
+const coupleScreen = document.getElementById("coupleScreen");
+const coupleButton = document.getElementById("coupleButton");
 
 /* =========================================
    FLOWER SETTINGS
@@ -147,10 +149,17 @@ function createFlowers() {
    FLOWERS FADE AWAY
 ========================================= */
 
+/* =========================================
+   FLOWERS FADE → COUPLE SCENE
+========================================= */
+
 function fadeFlowers() {
 
     const allFlowers =
         document.querySelectorAll(".flower");
+
+
+    // Fade all flowers away
 
     allFlowers.forEach((flower, index) => {
 
@@ -166,15 +175,29 @@ function fadeFlowers() {
     });
 
 
-    /* =========================================
-       NEXT SCENE WILL BE ADDED HERE
-    ========================================= */
+    // After flowers disappear,
+    // show the cute couple scene
 
     setTimeout(() => {
 
-        console.log("Flower scene finished ❤️");
+        flowerScreen.classList.add("hidden");
 
-        // Next romantic scene will be added here.
+        coupleScreen.classList.remove("hidden");
 
-    }, 2500);
+    }, 3200);
 }
+
+
+/* =========================================
+   COUPLE BUTTON
+========================================= */
+
+coupleButton.addEventListener("click", () => {
+
+    console.log("Couple button clicked ❤️");
+
+    // Next: Photo Gallery
+    // We will connect this in the next step.
+
+});
+
