@@ -320,15 +320,32 @@ function typeLoveLetter() {
 
 }
 /* =========================================
-   FINAL SURPRISE SCREEN
+   LOVE LETTER → FINAL SURPRISE
 ========================================= */
 
-setTimeout(() => {
+const finalScreen = document.getElementById("finalScreen");
+const letterScreen = document.getElementById("letterScreen");
+const letterButton = document.getElementById("letterButton");
 
-    const finalScreen = document.getElementById("finalScreen");
+if (letterButton && finalScreen) {
 
-    if (finalScreen) {
-        finalScreen.classList.remove("hidden");
-    }
+    letterButton.addEventListener("click", () => {
 
-}, 1000);
+        /*
+         * Give the love letter enough time
+         * to open and finish its animation.
+         */
+
+        setTimeout(() => {
+
+            if (letterScreen) {
+                letterScreen.classList.add("hidden");
+            }
+
+            finalScreen.classList.remove("hidden");
+
+        }, 12000);
+
+    });
+
+}
