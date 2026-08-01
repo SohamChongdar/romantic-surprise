@@ -1190,3 +1190,18 @@ body {
         margin-bottom: 20px;
     }
 }
+/* =========================================
+   OPEN ENVELOPE
+========================================= */
+
+.letter-envelope.open .envelope-flap {
+
+    transform: rotateX(180deg);
+
+}
+
+.letter-envelope.open {
+
+    transform: translateY(20px);
+
+}
