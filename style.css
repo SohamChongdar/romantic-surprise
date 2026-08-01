@@ -279,3 +279,472 @@ body {
         line-height: 1.5;
     }
 }
+/* =========================================
+   CUTE COUPLE SCENE
+========================================= */
+
+#coupleScreen {
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #ffd9e8 0%,
+            #ffb6d3 35%,
+            #ff82b2 70%,
+            #ff5d9b 100%
+        );
+
+    color: #5a1635;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   COUPLE BACKGROUND
+========================================= */
+
+.couple-background {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+/* Soft glowing circles */
+
+.couple-background::before,
+.couple-background::after {
+    content: "";
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(5px);
+
+    opacity: 0.45;
+
+    animation: dreamyGlow 4s ease-in-out infinite alternate;
+}
+
+.couple-background::before {
+    width: 220px;
+    height: 220px;
+
+    background: rgba(255,255,255,0.45);
+
+    top: 10%;
+    left: -50px;
+}
+
+.couple-background::after {
+    width: 280px;
+    height: 280px;
+
+    background: rgba(255,255,255,0.3);
+
+    bottom: -80px;
+    right: -60px;
+
+    animation-delay: 1.5s;
+}
+
+
+@keyframes dreamyGlow {
+
+    from {
+        transform: scale(0.9);
+        opacity: 0.25;
+    }
+
+    to {
+        transform: scale(1.15);
+        opacity: 0.5;
+    }
+}
+
+
+/* =========================================
+   COUPLE CONTENT
+========================================= */
+
+.couple-content {
+    position: relative;
+
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 20px;
+
+    max-width: 500px;
+}
+
+
+/* =========================================
+   BUNNIES
+========================================= */
+
+.couple-bunnies {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: center;
+
+    width: min(90vw, 390px);
+
+    height: 210px;
+
+    margin-bottom: 15px;
+}
+
+
+.bunny {
+
+    position: relative;
+
+    font-size: clamp(85px, 23vw, 135px);
+
+    line-height: 1;
+
+    filter:
+        drop-shadow(0 8px 8px rgba(120, 20, 70, 0.15));
+
+    z-index: 3;
+}
+
+
+/* Left bunny */
+
+.bunny-left {
+
+    animation:
+        bunnyLeft 2.5s ease-in-out infinite;
+
+    transform-origin: bottom center;
+
+}
+
+
+/* Right bunny */
+
+.bunny-right {
+
+    animation:
+        bunnyRight 2.5s ease-in-out infinite;
+
+    transform-origin: bottom center;
+
+}
+
+
+@keyframes bunnyLeft {
+
+    0%,
+    100% {
+        transform: translateX(-15px) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateX(15px) rotate(3deg);
+    }
+}
+
+
+@keyframes bunnyRight {
+
+    0%,
+    100% {
+        transform: translateX(15px) rotate(3deg);
+    }
+
+    50% {
+        transform: translateX(-15px) rotate(-3deg);
+    }
+}
+
+
+/* =========================================
+   HEART BETWEEN BUNNIES
+========================================= */
+
+.love-between {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: clamp(32px, 9vw, 55px);
+
+    z-index: 5;
+
+    animation: middleHeart 1.2s ease-in-out infinite;
+
+    filter:
+        drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+}
+
+
+@keyframes middleHeart {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.25);
+    }
+}
+
+
+/* =========================================
+   TEXT
+========================================= */
+
+.couple-content h2 {
+
+    font-size: clamp(25px, 6vw, 36px);
+
+    color: #721b45;
+
+    margin-top: 10px;
+
+    text-shadow:
+        0 2px 8px rgba(255,255,255,0.6);
+
+    animation: textAppear 1s ease forwards;
+}
+
+
+.couple-content p {
+
+    margin-top: 10px;
+
+    max-width: 320px;
+
+    font-size: clamp(13px, 3.5vw, 16px);
+
+    line-height: 1.5;
+
+    color: #7c3155;
+
+    opacity: 0.9;
+}
+
+
+@keyframes textAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   HEART CLICK BUTTON
+========================================= */
+
+.small-heart-button {
+
+    margin-top: 28px;
+
+    border: none;
+
+    background: rgba(255,255,255,0.35);
+
+    backdrop-filter: blur(8px);
+
+    -webkit-backdrop-filter: blur(8px);
+
+    border-radius: 100px;
+
+    padding: 10px 22px 10px 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+
+    color: #8a174e;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 8px 25px rgba(130, 20, 70, 0.18);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.small-heart-button:hover {
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 10px 35px rgba(130, 20, 70, 0.28);
+}
+
+
+.small-heart-button:active {
+
+    transform: scale(0.94);
+}
+
+
+.button-heart {
+
+    font-size: 30px;
+
+    animation: buttonHeart 1.5s ease-in-out infinite;
+}
+
+
+@keyframes buttonHeart {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+
+/* =========================================
+   FLOATING HEARTS
+========================================= */
+
+.floating-heart {
+
+    position: absolute;
+
+    z-index: 2;
+
+    font-size: 25px;
+
+    opacity: 0.6;
+
+    animation:
+        floatingHeart 5s ease-in-out infinite;
+}
+
+
+.heart-one {
+    left: 12%;
+    top: 18%;
+    animation-delay: 0s;
+}
+
+.heart-two {
+    right: 15%;
+    top: 25%;
+    animation-delay: 1s;
+}
+
+.heart-three {
+    left: 20%;
+    bottom: 18%;
+    animation-delay: 2s;
+}
+
+.heart-four {
+    right: 12%;
+    bottom: 20%;
+    animation-delay: 0.5s;
+}
+
+.heart-five {
+    left: 50%;
+    top: 12%;
+    animation-delay: 1.8s;
+}
+
+
+@keyframes floatingHeart {
+
+    0% {
+        transform:
+            translateY(20px)
+            scale(0.8)
+            rotate(-10deg);
+
+        opacity: 0.2;
+    }
+
+    50% {
+        transform:
+            translateY(-25px)
+            scale(1.1)
+            rotate(10deg);
+
+        opacity: 0.7;
+    }
+
+    100% {
+        transform:
+            translateY(20px)
+            scale(0.8)
+            rotate(-10deg);
+
+        opacity: 0.2;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .couple-bunnies {
+        height: 175px;
+    }
+
+    .couple-content h2 {
+        margin-top: 0;
+    }
+
+    .couple-content p {
+        padding: 0 15px;
+    }
+
+    .small-heart-button {
+        margin-top: 22px;
+    }
+}
