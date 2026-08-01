@@ -189,23 +189,378 @@
     </div>
 
 </section>
-    <!-- =========================
+  <!-- =========================
      LOVE LETTER SCREEN
 ========================== -->
+
+<style>
+
+#letterScreen {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+
+    background: linear-gradient(
+        135deg,
+        #fff5f8 0%,
+        #ffe4ed 50%,
+        #ffc2d7 100%
+    ) !important;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    z-index: 100 !important;
+}
+
+
+#letterScreen .letter-background {
+    width: 100% !important;
+    min-height: 100vh !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 25px 15px !important;
+
+    box-sizing: border-box !important;
+}
+
+
+#letterScreen .letter-content {
+    width: min(92vw, 600px) !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+
+    position: relative !important;
+    z-index: 10 !important;
+
+    text-align: center !important;
+}
+
+
+/* =========================
+   ENVELOPE
+========================= */
+
+#letterScreen .letter-envelope {
+    width: min(75vw, 280px) !important;
+    height: min(48vw, 175px) !important;
+
+    position: relative !important;
+
+    margin-bottom: 25px !important;
+
+    cursor: pointer !important;
+
+    transition: transform 0.5s ease !important;
+}
+
+
+#letterScreen .envelope-body {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: #fff !important;
+
+    border-radius: 12px !important;
+
+    font-size: 60px !important;
+
+    box-shadow:
+        0 12px 35px rgba(100, 30, 60, 0.20) !important;
+
+    z-index: 2 !important;
+}
+
+
+#letterScreen .envelope-flap {
+    position: absolute !important;
+
+    top: 0 !important;
+    left: 0 !important;
+
+    width: 0 !important;
+    height: 0 !important;
+
+    border-left:
+        min(37.5vw, 140px)
+        solid transparent !important;
+
+    border-right:
+        min(37.5vw, 140px)
+        solid transparent !important;
+
+    border-top:
+        min(24vw, 88px)
+        solid #ffb7ce !important;
+
+    z-index: 5 !important;
+
+    transform-origin: top center !important;
+
+    transition: transform 0.8s ease !important;
+}
+
+
+#letterScreen .letter-envelope.open .envelope-flap {
+    transform: rotateX(180deg) !important;
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+#letterScreen .love-letter {
+    width: 100% !important;
+
+    animation: loveLetterAppear 0.8s ease forwards !important;
+}
+
+
+#letterScreen .letter-paper {
+    width: 100% !important;
+
+    box-sizing: border-box !important;
+
+    background: #fffdf8 !important;
+
+    border-radius: 10px !important;
+
+    padding: 30px 24px !important;
+
+    min-height: 420px !important;
+
+    text-align: left !important;
+
+    box-shadow:
+        0 15px 45px rgba(90, 30, 50, 0.20) !important;
+
+    border: 1px solid rgba(130, 70, 90, 0.12) !important;
+}
+
+
+#letterScreen .letter-date {
+    color: #a15b72 !important;
+
+    font-family:
+        Arial,
+        sans-serif !important;
+
+    font-size: 13px !important;
+
+    margin-bottom: 18px !important;
+}
+
+
+#letterScreen .letter-title {
+    color: #8b3155 !important;
+
+    font-family:
+        "Segoe Print",
+        "Comic Sans MS",
+        cursive !important;
+
+    font-size: clamp(25px, 7vw, 35px) !important;
+
+    margin-bottom: 20px !important;
+}
+
+
+#letterScreen .letter-text {
+    color: #5d3a48 !important;
+
+    font-family:
+        "Segoe Print",
+        "Comic Sans MS",
+        cursive !important;
+
+    font-size: clamp(14px, 3.7vw, 18px) !important;
+
+    line-height: 1.85 !important;
+
+    white-space: pre-wrap !important;
+
+    min-height: 220px !important;
+}
+
+
+#letterScreen .letter-signature {
+    color: #7e3a54 !important;
+
+    font-family:
+        "Segoe Print",
+        cursive !important;
+
+    font-size: 16px !important;
+
+    text-align: right !important;
+
+    margin-top: 20px !important;
+}
+
+
+#letterScreen .letter-signature span {
+    font-size: 23px !important;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+#letterScreen .letter-button {
+    margin-top: 25px !important;
+
+    border: none !important;
+
+    border-radius: 50px !important;
+
+    padding: 11px 22px !important;
+
+    background: rgba(255,255,255,0.85) !important;
+
+    color: #7b3150 !important;
+
+    font-family: Arial, sans-serif !important;
+
+    font-size: 15px !important;
+
+    font-weight: bold !important;
+
+    cursor: pointer !important;
+
+    box-shadow:
+        0 8px 25px rgba(90,30,50,0.15) !important;
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+#letterScreen .letter-sparkle {
+    position: absolute !important;
+
+    z-index: 3 !important;
+
+    font-size: 24px !important;
+
+    animation:
+        letterFloatFix 4s ease-in-out infinite !important;
+}
+
+
+#letterScreen .sparkle-letter-one {
+    left: 8% !important;
+    top: 15% !important;
+}
+
+
+#letterScreen .sparkle-letter-two {
+    right: 8% !important;
+    top: 20% !important;
+}
+
+
+#letterScreen .sparkle-letter-three {
+    left: 10% !important;
+    bottom: 20% !important;
+}
+
+
+#letterScreen .sparkle-letter-four {
+    right: 10% !important;
+    bottom: 18% !important;
+}
+
+
+@keyframes letterFloatFix {
+
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translateY(-15px);
+        opacity: 1;
+    }
+}
+
+
+@keyframes loveLetterAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    #letterScreen .letter-background {
+        align-items: flex-start !important;
+
+        padding-top: 35px !important;
+        padding-bottom: 35px !important;
+    }
+
+
+    #letterScreen .letter-paper {
+        padding: 25px 18px !important;
+
+        min-height: 400px !important;
+    }
+
+}
+
+</style>
+
 
 <section id="letterScreen" class="screen hidden">
 
     <div class="letter-background">
 
         <div class="letter-sparkle sparkle-letter-one">✨</div>
+
         <div class="letter-sparkle sparkle-letter-two">💗</div>
+
         <div class="letter-sparkle sparkle-letter-three">🌸</div>
+
         <div class="letter-sparkle sparkle-letter-four">💕</div>
 
 
         <div class="letter-content">
 
-            <div class="letter-envelope" id="letterEnvelope">
+
+            <!-- ENVELOPE -->
+
+            <div
+                class="letter-envelope"
+                id="letterEnvelope"
+            >
 
                 <div class="envelope-flap"></div>
 
@@ -216,7 +571,12 @@
             </div>
 
 
-            <div class="love-letter hidden" id="loveLetter">
+            <!-- LOVE LETTER -->
+
+            <div
+                class="love-letter hidden"
+                id="loveLetter"
+            >
 
                 <div class="letter-paper">
 
@@ -234,8 +594,13 @@
                     ></div>
 
                     <div class="letter-signature">
+
                         With all my love,<br>
-                        <span>Soham ❤️</span>
+
+                        <span>
+                            Soham ❤️
+                        </span>
+
                     </div>
 
                 </div>
@@ -243,20 +608,27 @@
             </div>
 
 
+            <!-- BUTTON -->
+
             <button
                 id="letterButton"
                 class="letter-button"
             >
+
                 ❤️
-                <span>Click Me</span>
+
+                <span>
+                    Click Me
+                </span>
+
             </button>
+
 
         </div>
 
     </div>
 
-</section>
-    
+</section>    
     <script src="script.js"></script>
 
 </body>
