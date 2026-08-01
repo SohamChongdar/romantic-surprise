@@ -319,3 +319,16 @@ function typeLoveLetter() {
     typeNextCharacter();
 
 }
+/* =========================================
+   FINAL SURPRISE SCREEN
+========================================= */
+
+setTimeout(() => {
+
+    const finalScreen = document.getElementById("finalScreen");
+
+    if (finalScreen) {
+        finalScreen.classList.remove("hidden");
+    }
+
+}, 1000);
