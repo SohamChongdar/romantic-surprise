@@ -476,26 +476,57 @@ function typeLoveLetter() {
 
 }
 /* =========================================
-   MORE BUTTON → FINAL SURPRISE
+   SHOW MORE BUTTON
 ========================================= */
 
-document.addEventListener("click", function (event) {
+function showMoreButton() {
 
-    const clickedButton =
-        event.target.closest("#moreButton");
+    if (!moreButton) return;
 
-    if (!clickedButton) return;
+    moreButton.classList.remove("hidden");
 
+    moreButton.style.display = "inline-flex";
 
-    // Hide love letter
-    if (letterScreen) {
-        letterScreen.classList.add("hidden");
-    }
+}
 
 
-    // Show final surprise
-    if (finalScreen) {
-        finalScreen.classList.remove("hidden");
-    }
+/* =========================================
+   MORE → FINAL SURPRISE
+========================================= */
 
-});
+if (moreButton) {
+
+    moreButton.addEventListener("click", function () {
+
+        /* Hide Love Letter */
+
+        if (letterScreen) {
+
+            letterScreen.classList.add("hidden");
+
+            letterScreen.style.setProperty(
+                "display",
+                "none",
+                "important"
+            );
+
+        }
+
+
+        /* Show Final Surprise */
+
+        if (finalScreen) {
+
+            finalScreen.classList.remove("hidden");
+
+            finalScreen.style.setProperty(
+                "display",
+                "flex",
+                "important"
+            );
+
+        }
+
+    });
+
+}
