@@ -7,7 +7,7 @@ const startButton = document.getElementById("startButton");
 const welcomeScreen = document.getElementById("welcomeScreen");
 const flowerScreen = document.getElementById("flowerScreen");
 const flowerContainer = document.getElementById("flowerContainer");
-
+const backgroundMusic = document.getElementById("backgroundMusic");
 
 /* =========================================
    FLOWER SETTINGS
@@ -34,6 +34,13 @@ function startSurprise() {
     // Prevent multiple clicks
     startButton.disabled = true;
 
+    // Start background music
+    backgroundMusic.volume = 0.45;
+
+    backgroundMusic.play().catch(error => {
+        console.log("Music could not start:", error);
+    });
+
     // Hide first screen
     welcomeScreen.classList.add("hidden");
 
@@ -46,7 +53,6 @@ function startSurprise() {
 
     }, 700);
 }
-
 
 /* =========================================
    CREATE MANY FLOWERS
